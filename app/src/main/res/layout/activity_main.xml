@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ibm.tone_analyzer.MainActivity"
+    android:background="#ffffff">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <EditText
+        android:layout_below="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:ems="10"
+        android:id="@+id/entryText"
+        android:layout_margin="10dp"
+        android:hint="@string/default_text"
+        android:inputType="textMultiLine"/>
+
+
+    <!--android:visibility="invisible"-->
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entryText"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progressBar"
+        android:visibility="gone" />
+
+    <!--<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/entryText"
+        android:id="@+id/fragment_container"
+        android:layout_above="@+id/speechButton"/>-->
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_toneanalyzer_transparent" />
+
+    <ImageView
+        android:id="@+id/outputImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/speechButton"
+        android:layout_below="@+id/entryText"/>
+
+    <ImageButton
+        android:id="@+id/speechButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:onClick="getSpeechInput"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/baseline_mic_black_48dp"
+        android:background="#ffffff"/>
+
+</RelativeLayout>

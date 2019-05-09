@@ -1,0 +1,43 @@
+apply plugin: 'base'
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        applicationId "com.ibm.tone_analyzer"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    lintOptions {
+        warning 'InvalidPackage'
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation ('com.ibm.mobilefirstplatform.clientsdk.android:core:[2.0.0,3.0.0)')
+    implementation 'com.ibm.watson.developer_cloud:tone-analyzer:6.1.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support:design:25.4.0'
+    implementation 'com.google.android:flexbox:0.2.3'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.android.support:recyclerview-v7:25.4.0'
+    implementation 'com.android.support:cardview-v7:25.4.0'
+}
