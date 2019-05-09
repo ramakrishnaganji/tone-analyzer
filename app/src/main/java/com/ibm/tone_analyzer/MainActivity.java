@@ -148,12 +148,16 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("CHECKPOINT 1-2");
 
                         if (speechRecordFlag) {
+                            
+                            finishActivity(SPEECHINPUT_REQUESTCODE);
+                            
                             System.out.println("CHECKPOINT 1-3");
                             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
                             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-                            intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,15);
-                            intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS,15);
+                            intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS,15000);
+                            intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,15000);
+                            intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS,15000);
 
                             if (intent.resolveActivity(getPackageManager()) != null) { //make sure device supports functionality
                                 startActivityForResult(intent, SPEECHINPUT_REQUESTCODE);//request code is whatever we choose
