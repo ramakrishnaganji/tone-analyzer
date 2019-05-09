@@ -32,6 +32,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.ibm.mobilefirstplatform.clientsdk.android.core.api.BMSClient;
@@ -252,28 +253,65 @@ public class MainActivity extends AppCompatActivity {
                     if (!firstAnalysis){
 
                         ImageView outputImage=(ImageView) findViewById(R.id.outputImage);
+                        Random random = new Random();
+                        int randomPicToUse = random.nextInt(3);
 
                         switch (CreateResultArrayList(result.getDocumentTone().getTones()).get(0)){
                             case "Sadness":
-                                outputImage.setImageResource(R.drawable.sad_cowboy);
+                                if (randomPicToUse == 0)
+                                    outputImage.setImageResource(R.drawable.sad_cowboy);
+                                else if (randomPicToUse == 1)
+                                    outputImage.setImageResource(R.drawable.sad_face_emoji);
+                                else
+                                    outputImage.setImageResource(R.drawable.dejected_dace_emoji);
                                 break;
                             case "Anger":
-                                outputImage.setImageResource(R.drawable.angry_bird);
+                                if (randomPicToUse == 0)
+                                    outputImage.setImageResource(R.drawable.angry_bird);
+                                else if (randomPicToUse == 1)
+                                    outputImage.setImageResource(R.drawable.angry_emotocon);
+                                else
+                                    outputImage.setImageResource(R.drawable.angry2);
                                 break;
                             case "Fear":
-                                outputImage.setImageResource(R.drawable.scared_crow);
+                                if (randomPicToUse == 0)
+                                    outputImage.setImageResource(R.drawable.scared_crow);
+                                else if (randomPicToUse == 1)
+                                    outputImage.setImageResource(R.drawable.fear_emoji);
+                                else
+                                    outputImage.setImageResource(R.drawable.fear_emoji2);
                                 break;
                             case "Joy":
-                                outputImage.setImageResource(R.drawable.party_crow);
+                                if (randomPicToUse == 0)
+                                    outputImage.setImageResource(R.drawable.party_crow);
+                                else if (randomPicToUse == 1)
+                                    outputImage.setImageResource(R.drawable.joy_edited);
+                                else
+                                    outputImage.setImageResource(R.drawable.joy);
                                 break;
                             case "Analytical":
-                                outputImage.setImageResource(R.drawable.thinking);
+                                if (randomPicToUse == 0)
+                                    outputImage.setImageResource(R.drawable.thinking);
+                                else if (randomPicToUse == 1)
+                                    outputImage.setImageResource(R.drawable.thinking_normal);
+                                else
+                                    outputImage.setImageResource(R.drawable.thonking);
                                 break;
                             case "Confident":
-                                outputImage.setImageResource(R.drawable.supreme_champion);
+                                if (randomPicToUse == 0)
+                                    outputImage.setImageResource(R.drawable.supreme_champion);
+                                else if (randomPicToUse == 1)
+                                    outputImage.setImageResource(R.drawable.confident);
+                                else
+                                    outputImage.setImageResource(R.drawable.smirk);
                                 break;
                             case "Tentative":
-                                outputImage.setImageResource(R.drawable.tentative_crow);
+                                if (randomPicToUse == 0)
+                                    outputImage.setImageResource(R.drawable.tentative_crow);
+                                else if (randomPicToUse == 1)
+                                    outputImage.setImageResource(R.drawable.neutral_face_emoji);
+                                else
+                                    outputImage.setImageResource(R.drawable.face_with_monocle_google);
                                 break;
 
                             default:
